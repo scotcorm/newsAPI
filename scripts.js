@@ -25,6 +25,14 @@ function displayNews(articles) {
     title.textContent = article.title;
     articleDiv.appendChild(title);
 
+    const description = document.createElement('p');
+    description.textContent = article.description;
+    articleDiv.appendChild(description);
+
+    const url = document.createElement('p');
+    url.textContent = article.url;
+    articleDiv.appendChild(url);
+
     // TODO: Use document.createElement and appendChild to create and append more elements
 
     newsDiv.appendChild(articleDiv);
