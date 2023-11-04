@@ -17,8 +17,21 @@ fetchNews();
 
 function displayNews(articles) {
   const newsDiv = document.querySelector('#news');
+  newsDiv.innerHTML = '';
+  const gridContainer = document.createElement('div');
+  gridContainer.className = 'grid-container';
+  newsDiv.appendChild(gridContainer);
+
   for (const article of articles) {
     const articleDiv = document.createElement('div');
+    articleDiv.className = 'article';
+
+    if (article.urlToImage) {
+      const image = document.createElement('img');
+      image.src = article.urlToImage;
+      image.alt = 'Article Image';
+      articleDiv.appendChild(image);
+    }
 
     //create and append a headline to the articleDiv
     const title = document.createElement('h4');
@@ -29,12 +42,14 @@ function displayNews(articles) {
     description.textContent = article.description;
     articleDiv.appendChild(description);
 
-    const url = document.createElement('p');
-    url.textContent = article.url;
+    const url = document.createElement('a');
+    url.href = article.url;
+    url.target = ' blank';
+    url.textContent = 'Read More';
     articleDiv.appendChild(url);
 
     // TODO: Use document.createElement and appendChild to create and append more elements
-
-    newsDiv.appendChild(articleDiv);
+    gridContainer.appendChild(articleDiv);
+    // newsDiv.appendChild(articleDiv);
   }
 }
