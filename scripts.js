@@ -32,7 +32,7 @@ function displayNews(articles) {
       image.alt = 'Article Image';
       articleDiv.appendChild(image);
     }
-    console.log(gridContainer.childNodes)
+    console.log(gridContainer.childNodes);
     //create and append a headline to the articleDiv
     const title = document.createElement('h4');
     title.textContent = article.title;
